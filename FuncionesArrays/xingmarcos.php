@@ -15,12 +15,17 @@ $array=[
 ];
 
 $nueva_psswd=["Arturo"=>"Nuevadaw1"];
+
+/*funcion predefinida para que imprima usuarios y contraseña */
 function prueba_imprimir($item, $clave){
     echo "Usuario: $clave con clave $item\n";
 }
 
 
 array_walk_recursive($array,'prueba_imprimir');
-
+/*si printeas la funcion, el replace se mantiene
+si aplicas el w_r, printea el array original*/
+print_r(array_replace($array,$nueva_psswd));
+array_walk_recursive($array,'prueba_imprimir');
 
 ?>
