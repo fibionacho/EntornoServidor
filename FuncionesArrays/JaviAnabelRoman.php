@@ -26,5 +26,8 @@ $arr4=[2 => 6, 3=>8, 4 =>0];
 $arr5=array_replace($arr3,$arr4);
 
 print_r($arr5);
+
+
+print_r(array_search(11,$arr5));
 /*plot twist*/
 ?>
