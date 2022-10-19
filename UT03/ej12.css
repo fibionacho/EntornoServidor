@@ -1,0 +1,22 @@
+#datosPersonales{
+    text-align: center;
+    border-collapse: collapse;
+    border: 1px solid black;
+    margin-left: 25%;
+    margin-top: 5%;
+    margin-right: 25%;
+    background-color: #ffe1a8;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    
+}
+input,label{
+    text-align: center;
+
+}
+label{
+    color: #472d30
+}
+body{
+  background-color: #c9cba3;
+}
