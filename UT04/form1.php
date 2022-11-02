@@ -10,7 +10,6 @@ $nav=explode(" ",$_SERVER["HTTP_USER_AGENT"]);
 $idioma=explode(",",$_SERVER["HTTP_ACCEPT_LANGUAGE"]);
 
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
