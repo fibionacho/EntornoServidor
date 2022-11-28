@@ -4,7 +4,8 @@ $data = file_get_contents(
 );
 
 
-$lines = explode("\n", $data);
+$data = explode("\n", $data);
+array_pop($data);
 ?>
 
 
@@ -26,18 +27,18 @@ $lines = explode("\n", $data);
         </tr>
     </thead>
     <tbody>
-        <tr>
+        
             <?php
-            foreach ($lines as $line) {
+            foreach ($data as $line =>$valor) {
                 echo "<tr>";
-                $fields= explode($line,";");
-                echo "<td>$fields[0]</td>";
-                echo "<td>$fields[1]</td>";
-                echo "<td>$fields[2]</td>";
+                $valor= explode(";",$valor);
+                echo "<td>$valor[0]</td>";
+                echo "<td>$valor[1]</td>";
+                echo "<td>$valor[2]</td>";
                 echo "</tr>";
             }
             ?>
-        </tr>
+        
     </tbody>
 
     </table>

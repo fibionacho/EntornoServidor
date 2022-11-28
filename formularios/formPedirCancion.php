@@ -21,11 +21,11 @@ $errores = [];
 
 //ver si user envia info
 if(isset($_POST['enviar'])){
-    if(isset($_POST['temazo']) && $_POST['temazo'] !=""){
-        $temazo=$_POST['temazo'];
+    if(isset($_POST['cancion']) && $_POST['cancion'] !=""){
+        $temazo=$_POST['cancion'];
 
     }else{
-        $errores['temazo'] = 'No puedes estar vacio el tema';
+        $errores['cancion'] = 'No puedes estar vacio el tema';
     }
 
     if(isset($_POST['hora']) && $_POST['hora'] !=""){
