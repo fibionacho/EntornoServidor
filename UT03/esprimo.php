@@ -13,7 +13,7 @@
     function esPrimo($n){
         $retorno=true;
             for($i=2;$i<=$n/2 && $retorno;$i++){
-                if($num%$i==0){
+                if($n%$i==0){
                     $retorno=false;
                 }
             }
