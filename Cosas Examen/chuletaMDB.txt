@@ -18,5 +18,12 @@ mariadb -h 127.0.0.1 -u roman -p mibasededatos
 mariadb -u examen -p examen
 
 
+$ mysql -u juan proyecto01_juan_de_la_cierva
+$ mysql -u juan -p proyecto01_juan_de_la_cierva
+mysql> show databases;
+mysql> show tables;
+mysql> CREATE TABLE cosas (nombre varchar(100));
+mysql> show tables;
+
 INTERFAZ:
 snap install mysql-workbench-community
