@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$numero = isset($_SESSION["numero"]) ? $_SESSION["numero"]: rand(0, 10);
+$numero = isset($_SESSION["numero"]) ? $_SESSION["numero"] : rand(0, 10);
 $_SESSION["numero"] = $numero;
 
 $intentos = 4;
@@ -20,6 +20,13 @@ function adivinar($num, $numero)
         echo "el número que has dicho es mayor";
     } else echo "Has acertado!";
 }
+
+function kill($intentos){
+    if($intentos<=0){
+        session_destroy();
+    }
+}
+
 
 ?>
 <!DOCTYPE html>
@@ -41,6 +48,7 @@ function adivinar($num, $numero)
     if (isset($_GET["num"])) {
         adivinar($_GET["num"], $numero);
     }
+    kill($intentos);
     ?>
 
 </body>
