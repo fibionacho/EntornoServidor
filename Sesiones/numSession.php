@@ -21,8 +21,9 @@ function adivinar($num, $numero)
     } else echo "Has acertado!";
 }
 
-function kill($intentos){
-    if($intentos<=0){
+function kill($intentos)
+{
+    if ($intentos <= 0) {
         session_destroy();
     }
 }
