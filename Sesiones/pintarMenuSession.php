@@ -3,9 +3,9 @@
 $user;
 $page;
 
-$bcolor="";
-$fcolor="";
-$apenom="anonimo";
+$bcolor = "";
+$fcolor = "";
+$apenom = "anonimo";
 if (isset($_POST["usuario"])) {
     $user = $_POST["usuario"];
 } else {
@@ -39,7 +39,7 @@ function pintarFondo($b, $f)
     return
         '<style>
             body{
-                background-color: '.  $b. ';
+                background-color: ' .  $b . ';
                 color: ' . $f . ';
             };
              
