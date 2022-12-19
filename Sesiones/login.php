@@ -27,6 +27,11 @@ if(isset($_POST["submit"])) {
         $password = clean_input($_POST["password"]);
     }
 
+
+    /**try catch toda la consulta */
+
+    //$mbd = new PDO('mysql:host=localhost;dbname=usuarios', "root", "");
+
     // $sql="SELECT * FROM usuarios WHERE user = ? AND password=?";
     // Consulta preparada!
     // Traed registro de usuario con ese email
