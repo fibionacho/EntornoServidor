@@ -1,4 +1,6 @@
 <?php
+
+require('db.php');
 session_start();
 
 function clean_input($data)
@@ -12,6 +14,15 @@ function clean_input($data)
 $login = "";
 $password = "";
 $errorList = [];
+$url = "";
+
+
+
+if (isset($_GET["url"])) {
+  $url = $_GET["url"];
+} elseif (isset($_POST["url"])) {
+  $url = $_POST["url"];
+}
 
 
 if (isset($_POST["submit"])) {
@@ -30,27 +41,15 @@ if (isset($_POST["submit"])) {
   }
 
 
-  /**try catch toda la consulta */
+  $consulta = $db -> prepare("SELECT * FROM usuarios WHERE email = :email: LIMIT 1");
+  $consulta->execute([":email:" => $login]);
+  $user = $consulta->fetch();
 
-  try {
-    //code...
-  } catch (PDOException $e) {
-    print "Error: " . $e->getMessage() . "\n";
-    die();
-  }
 
-  //$mbd = new PDO('mysql:host=localhost;dbname=usuarios', "root", "");
-
-  // $sql="SELECT * FROM usuarios WHERE user = ? AND password=?";
-  // Consulta preparada!
-  // Traed registro de usuario con ese email
-  // Haced un hash de la contraseña
-  // Comparad hash con hash
-
-  if ($login == "asd@asd.es" && $password == "1234") {
+  if (isset($user) && password_verify( $password,$user["pass"])) {
     $_SESSION["user"] = $login;
-    if (isset($_GET["url"])) {
-      header('Location: ' . $_GET["url"]);
+    if ($url != "") {
+      header('Location: ' . $url);
     } else {
       header('Location: premio.php');
     }
@@ -77,6 +76,7 @@ if (isset($_GET["error"])) {
     <p>
       <label for="login">Email:</label>
       <input type="text" name="login" id="login" value="<?= $login ?>">
+      <input type="hidden" name="url" id="url" value="<?= $url ?>">
     </p>
 
     <p>
@@ -101,9 +101,3 @@ if (isset($_GET["error"])) {
 
 </html>
 
-
-<!---
-<script>alert(document.cookie);</script>
-"<script>alert(document.cookie);</script>
-"><script>alert(document.cookie);</script>
---->
