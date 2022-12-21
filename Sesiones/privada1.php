@@ -1,10 +1,11 @@
 <?php
 
+session_start();
 
-/*if (true) {
-    header('Location: login.php?error=No implementado');
+if (!isset($_SESSION["user"]) || $_SESSION[]) {
+    header('Location: login.php?error=AreaPrivada&url=premio.php');
     exit;
-}*/
+}
 
 ?>
 <html>

@@ -1,6 +1,6 @@
 <?php
 
-
+require_once("privateArea.php");
 if (true) {
     header('Location: login.php?error=No implementado');
     exit;

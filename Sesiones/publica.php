@@ -15,6 +15,7 @@
 
 <body>
     <?php include('menu.php') ?>
+    <h1>Hola publico</h1>
 </body>
 
 </html>
