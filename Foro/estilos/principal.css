@@ -1,0 +1,47 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: grey;
+}
+
+#margen {
+
+    background-color: aliceblue;
+    width: 80%;
+    height: 100%;
+}
+
+#navegador {
+    background-color: brown;
+    width: 100%;
+    display: flex;
+}
+
+#enlace {
+    padding: 1%;
+    padding-right: 2%;
+    position: absolute;
+    right:12%;
+    width: 20%;
+}
+.enlace{
+   
+    color: black;
+    text-decoration: none;
+    font-size: 20px;
+    padding-left: 2%;
+}
+
+#logo {
+    display: inline;
+    font-size: 20px;
+    padding-left: 1%;
+}
+#imagen{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
