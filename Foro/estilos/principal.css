@@ -4,18 +4,21 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: grey;
+    background-color: #0f4c5c;
 }
 
+h1,h2,p{
+    color: white;
+}
 #margen {
 
-    background-color: aliceblue;
+    background-color: #5f0f40;
     width: 80%;
-    height: 100%;
+    height: 1000%;
 }
 
 #navegador {
-    background-color: brown;
+    background-color:#9a031e;
     width: 100%;
     display: flex;
 }
@@ -29,7 +32,7 @@ body {
 }
 .enlace{
    
-    color: black;
+    color: #fb8b24;
     text-decoration: none;
     font-size: 20px;
     padding-left: 2%;

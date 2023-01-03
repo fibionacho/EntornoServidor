@@ -1,0 +1,16 @@
+#inicioSesion{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-collapse: collapse;
+    border: 1px solid black;
+    margin-right: 20%;
+    margin-left: 20%;
+    padding: 2%;
+    text-align: center;
+    background-color: #9a031e;
+}
+label{
+    font-size: large;
+    font-display: inherit;
+}
