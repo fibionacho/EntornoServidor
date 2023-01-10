@@ -39,7 +39,8 @@ if (isset($_POST["submit"])) {
 
 
     if (isset($usuario) && /*password_verify*/($password==$usuario["password"])) {
-        $_SESSION["usuario"] = $login;
+        $_SESSION["usuario"] = $usuario;
+        $_SESSION["name"] = $login;
         
        /* if ($url != "") {
             header('Location: ' . $url);
@@ -47,6 +48,7 @@ if (isset($_POST["submit"])) {
             header('Location: index.php');
         }
         exit;*/
+        header('Location: foro.php');
         $errorList[] = "funciona";
     } else {
         $errorList[] = "Clave errónea";
