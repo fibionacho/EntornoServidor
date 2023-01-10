@@ -27,7 +27,12 @@ session_start();
             </div>
         </div>
         <h1>Bienvenido <?php print_r($_SESSION["name"]) ?></h1>
+        <div>
+            <textarea name="post" id="post" cols="30" rows="10"></textarea>
+        </div>
     </div>
+
+
 </body>
 
 </html>

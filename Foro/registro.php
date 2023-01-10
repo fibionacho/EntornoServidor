@@ -29,7 +29,6 @@ if (isset($_POST["submit"])) {
             $user = $_POST["nombre"];
 
             if ($_POST["contrasena"] === $_POST["repetir"]) {
-            } else {
                 $psw = $_POST["contrasena"];
 
                 $insert = $db->prepare("INSERT INTO foro (usuario, correo, password) VALUES (:user, :mail, :pass)");
@@ -38,6 +37,10 @@ if (isset($_POST["submit"])) {
                 $insert->bindParam(":pass", $psw);
 
                 $insert->execute();
+
+                header('Location: iniciar.php');
+            } else {
+                $errorList = "las contraseñas no coinciden";
             }
         }
     }
@@ -99,7 +102,7 @@ if (isset($_POST["submit"])) {
 
                 <label for="submit">&nbsp;</label>
                 <br>
-                <button type="submit" name="submit" class="login-button">Login</button>
+                <button type="submit" name="submit" id="submit">Login</button>
             </form>
         </div>
 </body>
