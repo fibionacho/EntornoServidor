@@ -14,7 +14,7 @@ h1,h2,p{
 
     background-color: #5f0f40;
     width: 80%;
-    height: 1000%;
+    height: 100%
 }
 
 #navegador {
@@ -47,4 +47,25 @@ h1,h2,p{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+#post{
+    display: flex;
+}
+#publicar{
+    display: block;
+}
+#publicacion{
+    display: flex;
+    justify-content: center;
+}
+#comentario{
+    text-align: center;
+    background-color: #0f4c5c;
+    border: 1px solid wheat;
+    display: block;
+    width: 80%;
+    
+}
+#info{
+   
 }
