@@ -2,6 +2,7 @@
 require('db.php');
 session_start();
 
+/*Esta funcion es para evitar ataques */
 function clean_input($data)
 {
     $data = trim($data);

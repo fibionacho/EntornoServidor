@@ -1,5 +1,5 @@
 <?php 
-require("../src/init.php");
+require("..\src\init.php");
 
 $DB->ejecuta("SELECT * FROM usuarios");
 $usuarios = $DB->obtenDatos();

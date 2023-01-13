@@ -1,5 +1,5 @@
 <?php
-require("../src/init.php");
+require("..\src\init.php");
 if(isset($_POST['registrar'])) {
     $DB->ejecuta(
         "INSERT INTO usuarios (nombre, passwd, correo) VALUES (?,?,?)",
