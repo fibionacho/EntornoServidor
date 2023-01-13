@@ -1,5 +1,7 @@
 <?php 
 
+const LONG_TOKEN = 64;
+
 require("config.php");
 require("DWESBaseDatos.php");
 require('..\vendor\autoload.php');
