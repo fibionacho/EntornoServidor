@@ -27,7 +27,7 @@ if (!isset($_SESSION["nombre"]) || $_SESSION["nombre"] != "") {
             );
             //vida del token
             $DB->ejecuta(
-                "UPDATE tokens SET expiracion = NOW ()+ INTERVA 7 DAY WHERE valor = ?",
+                "UPDATE tokens SET expiracion = NOW ()+ INTERVAL 7 DAY WHERE valor = ?",
                 $tokenInfodb["valor"]
             );
         }
