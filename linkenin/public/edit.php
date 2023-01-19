@@ -1,5 +1,5 @@
 <?php
-if(!isset($_SESSION["user"]) || $_SESSION["user"]==""){
+if(!isset($_SESSION["usuario"]) || $_SESSION["usuario"]==""){
     header("Location: login.php?redirect=edit.php");
     die();
 }
