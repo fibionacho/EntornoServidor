@@ -61,6 +61,9 @@ $usuario = $DB->obtenElDato();
     <h3>Esta es tu informacion</h3>
     <h4><?= $usuario["nombre"] ?></h4>
     <form action="" method="post" enctype="multipart/form-data">
+    <?php if ($usuario["img"]!=""){  ?>
+        <img src="<?=$usuario["img"]?>"/>
+
         Imagen de perfil <input type="file" name="imagen" accept="image/png, image/jpeg"> <br>
         <textarea name="descripcion" id="" cols="30" rows="10">
                  <?= $usuario["descripcion"] ?>
