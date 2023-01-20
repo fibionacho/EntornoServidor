@@ -61,6 +61,7 @@ $usuario = $DB->obtenElDato();
     <h3>Esta es tu informacion</h3>
     <h4><?= $usuario["nombre"] ?></h4>
     <form action="" method="post" enctype="multipart/form-data">
+        
     <?php if ($usuario["img"]!=""){  ?>
         <img src="<?=$usuario["img"]?>"/>
 
