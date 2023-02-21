@@ -2,7 +2,7 @@
 
 const LONG_TOKEN = 64;
 
-require("config.php");
+require("config.example.php");
 require("DWESBaseDatos.php");
 require('..\vendor\autoload.php');
 require("Mailer.php");

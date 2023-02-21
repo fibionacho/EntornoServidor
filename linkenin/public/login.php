@@ -1,5 +1,5 @@
 <?php
-require("..\src\init.php");
+require("../src/init.php");
 function clean_input($data)
 {
     $data = trim($data);
