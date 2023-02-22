@@ -1,29 +1,42 @@
 <?php
-require("../src/init.php");
-function clean_input($data)
-{
+//require("db.php");
+require("init.php");
+
+//La función para evitar ataques
+function clean_input($data){
     $data = trim($data);
     $data = stripslashes($data);
     $data = htmlspecialchars($data);
     return $data;
 }
-if (isset($_POST["login"])) {
+
+if(isset($_POST["login"])){
     $nombre = $_POST["nombre"];
     $passwd = $_POST["passwd"];
     $recuerdame = $_POST["recuerdame"];
-    //consulta bbdd
 
-    $DB->ejecuta("SELECT id, nombre, passwd FROM usuarios WHERE nombre=?", $_POST["nombre"]);
+    //consultamos
 
+    $consulta = $db->prepare("SELECT id, nombre, passwd FROM usuarios WHERE nombre=:nombre");
+    $consulta->bindParam(":nombre", $nombre);
+   $user= $consulta->execute();
+   print_r($user);
 
+  //$DB->ejecuta("SELECT * FROM usuarios WHERE nombre = ?", $nombre);
 
+    // solo quiero la primera instancia
+   // $data = $db->obtenPrimeraInstancia();
 
-    if (password_verify($user["passwd"], $passwd)) {
-        $_SESSION["id"] = $user["id"];
-        $_SESSION["nombre"] = $user["nombre"];
+    //$data = $consulta->obtenPrimeraInstancia();
+    if(!empty($user) && password_verify($passwd  ,$user["passwd"])){
+        $_SESSION['usuario'] = $user['nombre'];
+        $_SESSION['id'] $insert = $db-> prepare("INSERT INTO usuarios(nombre, correo, passwd) VALUES (:user, :mail, :pass)");
+        $insert->bindParam(":user", $user);
+        $insert->bindParam(":mail",$mail);
+        $insert->bindParam(":pass", $pass); = $user['id'];
 
-        if (isset($_POST["recuerdame"]) && $_POST["recuerdame"] == "on") {
-            //generar token
+        if(isset($_POST["recuerdame"]) && $_POST["recuerdame"]=="on"){
+            //generamos token
             $token = bin2hex(openssl_random_pseudo_bytes(LONG_TOKEN));
             //GUARDAR TOKEN
             $DB->ejecuta(
@@ -31,8 +44,8 @@ if (isset($_POST["login"])) {
                 $_SESSION["id"],
                 $token
             );
-            //cookie con token
-            setcookie(
+             //cookie con token
+             setcookie(
                 "recuerdame",
                 $token,
                 [
@@ -42,32 +55,23 @@ if (isset($_POST["login"])) {
                 ]
             );
         }
-    } else {
+        header("Location:index.php");
+    } else{
         echo "Mostrar error";
     }
 }
 
-
-//RECOGER DATOS DEL POST
-//CONSULTA A BBDD POR USER
-//VERIFICAR CONTRASEÑA
-
-//SI HA PEDIDO RECUERDAME
-//GENERAR TOKEN, GUARDAR TOKEN, COOKIE CON TOKEN
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-
 <body>
-    <form action="" method="post">
+<form action="" method="post">
         User: <input type="text" name="nombre" id="">
 
         Pass: <input type="password" name="passwd" id="">
@@ -76,5 +80,4 @@ if (isset($_POST["login"])) {
         <input type="submit" name="login" value="Login">
     </form>
 </body>
-
 </html>

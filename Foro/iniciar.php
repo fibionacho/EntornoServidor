@@ -19,23 +19,14 @@ $errorList = [];
 $url = "";
 
 if (isset($_POST["submit"])) {
-    if (isset($_POST["nombre"])) {
-        $login = clean_input($_POST["nombre"]);
-    }
 
-    /*if (!filter_var($login, FILTER_VALIDATE_EMAIL)) {
-      $errorList[] = "Usuario inválido";
-      //http://php.net/manual/es/filter.filters.php
-    }*/
-
-
-    if (isset($_POST["contrasena"])) {
-        $password = clean_input($_POST["contrasena"]);
-    }
+    $nombre = $_POST["nombre"];
+    $password = $_POST["contrasena"];
+    $recuerdame = $_POST["recuerdame"];
 
 
     $consulta = $db->prepare("SELECT * FROM foro WHERE usuario = :usuario LIMIT 1");
-    $consulta->execute([":usuario" => $login]);
+    $consulta->execute([":usuario" => $nombre]);
     $usuario = $consulta->fetch();
 
 
@@ -92,6 +83,8 @@ if (isset($_POST["submit"])) {
                 <br>
                 <input type="password" name="contrasena" id="contrasena">
                 <br>
+                Recuerdame: <input type="checkbox" name="recuerdame" id="">
+       
 
 
                 <?php if (count($errorList) > 0) { ?>

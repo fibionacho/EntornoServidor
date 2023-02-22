@@ -17,6 +17,15 @@ CREATE TABLE
         id int auto_increment PRIMARY KEY,
         id_usuario int,
         valor VARCHAR(255),
-        expiracion DATETIME NOT NULL DEFAULT (NOW () + INTERVAL 7 DAY),
+        expiracion DATETIME NOT NULL  (NOW () + INTERVAL 7 DAY),
         CONSTRAINT fk_id_usuario FOREIGN KEY (id_usuario) REFERENCES usuarios (id)
     );
+
+
+  CREATE TABLE tokens (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    id_usuario INT,
+    valor VARCHAR(255),
+    expiracion DATE DEFAULT DATE_ADD(CURDATE(), INTERVAL 7 DAY),
+    CONSTRAINT fk_id_usuario FOREIGN KEY (id_usuario) REFERENCES usuarios(id)
+);

@@ -7,7 +7,7 @@ try {
         PDO:: ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
     ];
     
-        $db = new PDO('mysql:host=localhost;dbname=foro;charset=utf8mb4', 'root', '123abc');
+        $db = new PDO('mysql:host=localhost;dbname=romano;charset=utf8mb4', 'root', '123abc');
         $db->setAttribute(
             PDO::ATTR_ERRMODE,
             PDO::ERRMODE_EXCEPTION

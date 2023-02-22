@@ -41,8 +41,6 @@ if (isset($_SESSION["name"])) {
                     <textarea name="post" id="post" cols="50" rows="10"></textarea>
                     <button type="submit" name="publicar" id="publicar">Publicar</button>
                 </form>
-
-
             </div>
 
 
