@@ -4,7 +4,7 @@ const LONG_TOKEN = 32;
 
 require("config.php");
 require("DWESBaseDatos.php");
-
+require("")
 
 $DB=DWESBaseDatos::obtenerInstancia();
 $DB->inicializa(
