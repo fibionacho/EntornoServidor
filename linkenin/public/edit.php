@@ -25,14 +25,11 @@ if(isset($_FILES["imagen"])){
         if($_FILES["imagen"]["error"]==0){
             //mover el ficher a su posicion final
             move_uploaded_file($nombreTmp, "pedirselo a alguien");
-            $DB->ejecuta(
-                "UPDATE usuarios SET img = ? WHERE id = ?",
-                "pedirselo a alguien",
-                $_SESSION["id"]
-            );
+            
         }
     }else{
         //mostrar error
+        echo("error");
     }
 
 }
@@ -72,5 +69,6 @@ $usuario = $DB->obtenElDato();
         <input type="submit" value="Actualizar" name="actualizar">
     </form>
 </body>
+
 
 </html>

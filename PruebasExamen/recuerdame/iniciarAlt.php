@@ -3,7 +3,7 @@
 require('init.php');
 require('db.php');
 if (isset($_SESSION['usuario'])) {
-    header('Location: index.php');
+    header('Location: private.php');
 }
 
 $usuario = '';
@@ -47,7 +47,7 @@ if(isset($_POST['submit'])) {
             ]);
         }
 
-        header('Location: registro.php');
+        header('Location: private.php');
     }
 }
 
