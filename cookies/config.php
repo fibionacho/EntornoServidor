@@ -4,21 +4,21 @@ include "pintarMenu.php";
 if (isset($_POST["color"])) {
     setcookie("colorFondo", $_POST["color"]);
     $bcolor = $_POST["color"];
-} else if (!isset($_POST["color"]) && isset($_COOKIE["colorFondo"])) {
+} elseif (!isset($_POST["color"]) && isset($_COOKIE["colorFondo"])) {
     $bcolor = $_COOKIE["colorFondo"];
 }
 
 if (isset($_POST["colorTexto"])) {
     setcookie("colorTexto", $_POST["colorTexto"]);
     $fcolor = $_POST["colorTexto"];
-} else if (!isset($_POST["colorTexto"]) && isset($_COOKIE["colorTexto"])) {
+} elseif (!isset($_POST["colorTexto"]) && isset($_COOKIE["colorTexto"])) {
     $fcolor = $_COOKIE["colorTexto"];
 }
 
 if (isset($_POST["name"])) {
     setcookie("nombre", $_POST["name"]);
     $apenom = $_POST["name"];
-} else if (!isset($_POST["name"]) && isset($_COOKIE["nombre"])) {
+} elseif (!isset($_POST["name"]) && isset($_COOKIE["nombre"])) {
     $apenom = $_COOKIE["nombre"];
 }
 
@@ -39,15 +39,15 @@ if (isset($_POST["name"])) {
 
     <?php
     echo pintarFondo($bcolor, $fcolor);
-    ?>
+?>
 </head>
 
 <body>
 
     <?php
-    echo pintarAdvertencia();
-    echo pintarTexto();
-    ?>
+echo pintarAdvertencia();
+echo pintarTexto();
+?>
 
 
 
@@ -68,10 +68,10 @@ if (isset($_POST["name"])) {
     </form>
 
     <?php
-    print_r($_POST);
-    echo pintarMenu($apenom);
+print_r($_POST);
+echo pintarMenu($apenom);
 
-    ?>
+?>
 
 </body>
 

@@ -4,7 +4,8 @@ const LONG_TOKEN = 32;
 
 require("config.php");
 require("DWESBaseDatos.php");
-require("")
+require('vendor/autoload.php');
+require("Mailer.php");
 
 $DB=DWESBaseDatos::obtenerInstancia();
 $DB->inicializa(

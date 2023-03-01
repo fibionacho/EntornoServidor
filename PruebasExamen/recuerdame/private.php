@@ -3,26 +3,23 @@
 require('init.php');
 require('db.php');
 if (isset($_SESSION['usuario'])) {
-   
-    if(isset($_FILES["foto"]) && $_FILES["foto"]["error"] == 0) {
+    if (isset($_FILES["foto"]) && $_FILES["foto"]["error"] == 0) {
         // Se ha seleccionado una imagen
         $permitidos = array("image/jpg", "image/jpeg", "image/png");
         //$max_size = 5 * 1024 * 1024; // Tamaño máximo permitido: 5MB
 
-        if(in_array($_FILES["foto"]["type"], $permitidos) ) {
+        if (in_array($_FILES["foto"]["type"], $permitidos)) {
             // El archivo es válido
             $ruta_imagen = "./img/" . $_FILES["foto"]["name"];
             move_uploaded_file($_FILES["foto"]["tmp_name"], $ruta_imagen);
-            $DB->ejecuta("UPDATE usuarios SET img = ? WHERE id = ?", $ruta_imagen,  $_SESSION['id']);
-          
+            $DB->ejecuta("UPDATE usuarios SET img = ? WHERE id = ?", $ruta_imagen, $_SESSION['id']);
         } else {
             // El archivo no es válido
         }
     } else {
         // No se ha seleccionado una imagen
     }
-    
-}else{
+} else {
     header('Location: iniciarAlt.php');
 }
 

@@ -21,8 +21,8 @@ if(isset($_POST['submit'])) {
 
     // echo password_verify($passwd, $data['passwd']);
     // print_r($data);
-    
-    if(!empty($data) && password_verify($passwd,$data['passwd'])) {
+
+    if(!empty($data) && password_verify($passwd, $data['passwd'])) {
         $_SESSION['usuario'] = $data['nombre'];
         $_SESSION['id'] = $data['id'];
 
@@ -30,11 +30,11 @@ if(isset($_POST['submit'])) {
             //generar token
             $token = bin2hex(openssl_random_pseudo_bytes(LONG_TOKEN));
             //GUARDAR TOKEN
-           /* $DB->ejecuta(
-                "INSERT INTO tokens VALUES( :id_usuario, :valor) VALUES(?, ?)",
-                $_SESSION["id"],
-                $token
-            );*/
+            /* $DB->ejecuta(
+                 "INSERT INTO tokens VALUES( :id_usuario, :valor) VALUES(?, ?)",
+                 $_SESSION["id"],
+                 $token
+             );*/
 
             $insert = $db ->prepare("INSERT INTO tokens (id_usuario, valor) VALUES( :id_usuario, :valor)");
             $insert->bindParam("id_usuario", $_SESSION["id"]);
