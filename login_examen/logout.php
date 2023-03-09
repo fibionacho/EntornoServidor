@@ -1,0 +1,11 @@
+<?php
+require("db.php");
+session_start();
+if(isset($_SESSION["usuario"])){
+    unset($_SESSION["nombre"]);
+    unset($_SESSION["id"]);
+    unset($_SESSION["grupo"]);
+}
+session_destroy();
+header("Location:index.php");
+?>

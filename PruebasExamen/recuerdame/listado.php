@@ -10,9 +10,12 @@ $verificado = 1;
 if (isset($_SESSION['usuario'])) {
     $DB->ejecuta("SELECT * FROM usuarios WHERE id = ?", $_SESSION['id']);
 
+   // $DB->ejecuta("SELECT * FROM usuarios WHERE id = ?", $_SESSION['id']);
+
     $usuario = $DB->obtenPrimeraInstancia();
 
     $verificado = $usuario['verificacion'];
+   print_r($usuario);
 }
 
 // css
